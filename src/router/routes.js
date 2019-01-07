@@ -13,6 +13,20 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Table.vue') }
     ]
+  },
+  {
+    path: '/',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Auth.vue') }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('layouts/MyLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Registr.vue') }
+    ]
   }
 ]
 

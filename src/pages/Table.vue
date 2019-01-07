@@ -1,7 +1,7 @@
 <template>
 <div>
   <q-table
-    title="Расписание для группы '' на 25.12.18"
+    title="Расписание для группы МС-42"
     :data="tableData"
     :columns="columns"
     row-key="name"
@@ -11,111 +11,102 @@
 
 <style>
   .q-table-container {
-    margin: 86px 0px 0px 20px;
+    margin: 56px 0px 0px 20px;
     width: 920px;
+  }
+
+  .q-table td {
+    white-space: normal !important;
+    padding: 5px 10px !important;
   }
 </style>
 
 <script>
 
 export default {
-  name: 'Table',
+  name: 'TableList',
   data: () => ({
     columns: [
       {
-        name: 'desc',
+        name: 'time',
         required: true,
         label: 'Время',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'time',
         sortable: true,
         classes: 'my-class'
       },
       {
-        name: 'desc',
+        name: 'monday',
         required: true,
         label: 'Понедельник',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'monday',
         sortable: true,
         classes: 'my-class'
       },
       {
-        name: 'desc',
+        name: 'tuesday',
         required: true,
         label: 'Вторник',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'tuesday',
         sortable: true,
         classes: 'my-class'
       },
       {
-        name: 'desc',
+        name: 'wednesday',
         required: true,
         label: 'Среда',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'wednesday',
         sortable: true,
         classes: 'my-class'
       },
       {
-        name: 'desc',
+        name: 'thursday',
         required: true,
         label: 'Четверг',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'thursday',
         sortable: true,
         classes: 'my-class'
       },
       {
-        name: 'desc',
+        name: 'friday',
         required: true,
         label: 'Пятница',
-        align: 'left',
-        field: 'name',
-        sortable: true,
-        classes: 'my-class'
-      },
-      {
-        name: 'desc',
-        required: true,
-        label: 'Суббота',
-        align: 'left',
-        field: 'name',
+        align: 'center',
+        field: 'friday',
         sortable: true,
         classes: 'my-class'
       }
     ],
     tableData: [
       {
-        name: '8.00-9.45',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        sodium: 87,
-        calcium: '14%',
-        iron: '1%'
+        time: '10.10-11.45',
+        wednesday: 'Мобильные ВС (3-1)'
       },
       {
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        sodium: 87,
-        calcium: '14%',
-        iron: '1%'
+        time: '12.05-13.40',
+        wednesday: 'Мобильные ВС (3-1)',
+        thursday: 'Прогр. обеспечение МС (3-23)'
       },
       {
-        name: 'Frozen Yogurt',
-        calories: 159,
-        fat: 6.0,
-        carbs: 24,
-        protein: 4.0,
-        sodium: 87,
-        calcium: '14%',
-        iron: '1%'
+        time: '14.10-15.45',
+        tuesday: 'Прогр. обеспечение МС (4-28)',
+        wednesday: 'Мобильные ВС (3-1)',
+        thursday: 'Социология управления (4-3)',
+        friday: 'Сборка и тест. ПП для МС (3-29)'
+      },
+      {
+        time: '15.55-17.30',
+        thursday: 'Програм. МК для МЭС (3-23)',
+        friday: 'Сборка и тест. ПП для МС (3-29)'
+      },
+      {
+        time: '17.40-19.15',
+        tuesday: 'Безопасность в КС (3-29)'
       }
     ]
   })

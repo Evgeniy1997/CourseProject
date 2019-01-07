@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout>
       <!-- Round shaped (only use icon or spinner as content!) with loading state -->
     <q-toolbar class="toolbar">
       <!--
@@ -11,15 +11,21 @@
         <h1 class="logo__title">ГОМЕЛЬСКИЙ ГОСУДАРСТВЕННЫЙ<br>
           УНИВЕРСИТЕТ ИМ. Ф. СКОРИНЫ</h1>
       </q-toolbar-title>
-      <q-btn label="Панель управления" class="toolbar__btn"/>
+      <q-btn label="Панель управления" v-on:click="display" class="toolbar__btn" id="toolbar__btn"/>
     </q-toolbar>
 
     <div class="wrapper">
-      <q-page-container>
-        <Select></Select>
+      <q-page-container id="SelectOption">
+        <SelectOption></SelectOption>
       </q-page-container>
-      <q-page-container>
-        <Table></Table>
+      <q-page-container id="TableList">
+        <TableList></TableList>
+      </q-page-container>
+      <q-page-container id="Auth" style="display: none; width: 100%;">
+        <Auth></Auth>
+      </q-page-container>
+      <q-page-container id="Registr" style="display: none; width: 100%;">
+        <Registr></Registr>
       </q-page-container>
     </div>
   </q-layout>
@@ -27,18 +33,29 @@
 
 <script>
 import { openURL } from 'quasar'
-import Table from '../pages/Table'
-import Select from '../pages/Select'
-
+import TableList from '../pages/Table'
+import SelectOption from '../pages/Select'
+import Auth from '../pages/Auth'
+import Registr from '../pages/Registr'
 export default {
   name: 'MyLayout',
-  components: {Select, Table},
+  components: {SelectOption, TableList, Auth, Registr},
   data () {
     return {
 
     }
   },
   methods: {
+    display: function () {
+      var elem1 = document.getElementById('SelectOption')
+      var elem2 = document.getElementById('TableList')
+      var elem3 = document.getElementById('Registr')
+      var elem4 = document.getElementById('Auth')
+      elem1.style.display = 'none'
+      elem2.style.display = 'none'
+      elem3.style.display = 'none'
+      elem4.style.display = 'block'
+    },
     openURL
   }
 }
@@ -75,14 +92,12 @@ export default {
     padding: 0;
   }
 
-  .toolbar__btn {
+   .toolbar__btn {
     height: 70px;
     width: 264px;
     padding: 0;
     margin: 0;
-    text-align: center;
   }
-
   .toolbar__btn:hover {
     background-color: #0072a9;
   }
